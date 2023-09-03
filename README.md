@@ -1,2 +1,2 @@
 # Planetarian-SG-renpy
-Transfer from Planetarian ~Snow Globe~ to renpy
+Transfer from Planetarian \~Snow Globe\~ to renpy
