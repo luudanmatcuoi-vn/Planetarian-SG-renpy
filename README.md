@@ -1,6 +1,5 @@
 # Planetarian ~ Quả cầu tuyết ~
-Game được viết lại bằng engine renpy để chạy trên android
-Link tải: 
+Game được viết lại bằng engine renpy để chạy trên android 
 
 ![ảnh cung thiên văn](PK01.png)
 
