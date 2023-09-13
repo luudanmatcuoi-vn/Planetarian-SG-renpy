@@ -9,12 +9,11 @@ Truyện kể về giai đoạn trước khi thế giới lụi tàn, những ng
 Game cute mà không có ai làm trên bản android nên t viết lại bằng renpy luôn <(") Đằng nào ở dự án việt hoá trên window t chủ dự án kiêm trưởng ban kỹ thuật kiêm solo đồ hoạ kiêm solo dịch thô kiêm dựng lại phim ending nên sang dự án này cũng nhẹ nhàng.
 
 _____________________________________________________________________________
-### Hãy **ĐỌC KĨ** các nội dung dưới đây.
 
 ## Link tải
-[Terabox](https://terabox.com/s/1rJsqV8fVwSxYj3h4M0XR2g) / [Drive](https://drive.google.com/file/d/1pO_HG2X0EGUJBlJI6Ux4I71icg7gFVXP/view?usp=sharing)
-<br>
-<br>
+[Terabox](https://terabox.com/s/1LO4Xic2snhtvm0EknBJn6Q) / [Drive](https://drive.google.com/file/d/1y2qJiYfwSvDLeUdidvtDJLG46j4XHqKj/view?usp=sharing)
+
+Trang thông tin: [Itch.io](https://luudanmatcuoi.itch.io/planetarian-qua-cau-tuyet)
 
 ## Cách cài đặt
 Cứ cài đặt rồi chơi thôi <(") 
