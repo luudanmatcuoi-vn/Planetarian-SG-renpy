@@ -10,6 +10,7 @@ init offset = -2
 ## width and height of the game.
 init python:
     gui.init(1280, 960)
+    
 
 ## Enable checks for invalid or unstable properties in screens or transforms
 define config.check_conflicting_properties = True
@@ -57,22 +58,23 @@ define gui.interface_text_color = '#ffffff'
 ## Fonts and Font Sizes ########################################################
 
 ## The font used for in-game text.
-define gui.text_font = "DejaVuSans.ttf"
+define gui.text_font = "MotoyaLMaru.ttf"
 
 ## The font used for character names.
-define gui.name_text_font = "DejaVuSans.ttf"
+define gui.name_text_font = "MotoyaLMaru.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "DejaVuSans.ttf"
+define gui.interface_text_font = "MotoyaLMaru.ttf"
 
 ## The size of normal dialogue text.
-define gui.text_size = 22
+define gui.text_size = 28
+define gui.line_spacing  = 9
 
 ## The size of character names.
 define gui.name_text_size = 30
 
 ## The size of text in the game's user interface.
-define gui.interface_text_size = 22
+define gui.interface_text_size = 33
 
 ## The size of labels in the game's user interface.
 define gui.label_text_size = 24
@@ -97,7 +99,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## time.
 
 ## The height of the textbox containing dialogue.
-define gui.textbox_height = 185
+define gui.textbox_height = None
 
 ## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
 ## center, and 1.0 is the bottom.
@@ -107,7 +109,7 @@ define gui.textbox_yalign = 1.0
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
 define gui.name_xpos = 240
-define gui.name_ypos = 0
+define gui.name_ypos = 400
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -130,15 +132,17 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 268
-define gui.dialogue_ypos = 50
+define gui.dialogue_xpos = 0.5
+define gui.dialogue_ypos = 0.0
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 744
+define gui.dialogue_width = 1024
+#define gui.dialogue_height = 1024
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
 define gui.dialogue_text_xalign = 0.0
+#define gui.dialogue_text_yalign = 0.0
 
 
 ## Buttons #####################################################################
@@ -189,7 +193,7 @@ define gui.confirm_button_text_xalign = 0.5
 define gui.page_button_borders = Borders(10, 4, 10, 4)
 
 define gui.quick_button_borders = Borders(10, 4, 10, 0)
-define gui.quick_button_text_size = 14
+define gui.quick_button_text_size = 25
 define gui.quick_button_text_idle_color = gui.idle_small_color
 define gui.quick_button_text_selected_color = gui.accent_color
 
@@ -429,7 +433,8 @@ init python:
     def small():
 
         ## Font sizes.
-        gui.text_size = 30
+        gui.text_size = 28
+        gui.line_spacing  = 9
         gui.name_text_size = 36
         gui.notify_text_size = 25
         gui.interface_text_size = 30
@@ -454,7 +459,9 @@ init python:
         gui.history_height = 190
         gui.history_text_width = 690
 
-        gui.quick_button_text_size = 20
+        gui.quick_button_text_size = 26
+        
+        gui.quick_button_text_outlines = [ (1, "#0a1142", 1, 1) ]
 
         ## File button layout.
         gui.file_slot_cols = 2

@@ -81,6 +81,40 @@ style frame:
 ## In-game screens
 ################################################################################
 
+##### CHAPTER SCENE
+screen chapter():
+
+    tag menu
+
+    use game_menu(_("Help"), scroll="viewport"):
+
+        style_prefix "chapter"
+
+        vbox:
+            spacing 15
+           
+            hbox:
+                text "Các chương truyện:\n"
+            hbox:
+                textbutton _("Khởi đầu") action Start("start")
+            hbox:    
+                textbutton _("Người cộng sự mới vào") action Start("chapter_1")
+            hbox:   
+                textbutton _("Khu phố tiêu điều và robot") action Start("chapter_2")
+            hbox:    
+                textbutton _("Cô nhân viên hậu đậu") action Start("chapter_3")
+            hbox:    
+                textbutton _("Người khổng lồ hiền hoà") action Start("chapter_4")
+            hbox:   
+                textbutton _("Liên tục rời nơi làm việc") action Start("chapter_5")
+            hbox:    
+                textbutton _("Nỗi đau của mỗi người") action Start("chapter_6")
+            hbox:    
+                textbutton _("Những mảnh tuyết rơi") action Start("chapter_7")
+            hbox:    
+                textbutton _("Danh đề") action Start("chapter_8")
+
+
 
 ## Say screen ##################################################################
 ##
@@ -248,15 +282,18 @@ screen quick_menu():
 
             xalign 0.5
             yalign 1.0
+            
+            xoffset -10
+            yoffset -10
 
-            textbutton _("Trở lại") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Trở Lại") action Rollback()
+            textbutton _("Lịch Sử") action ShowMenu('history')
+            textbutton _("Tua Nhanh") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("Tự Động") action Preference("auto-forward", "toggle")
+            textbutton _("Lưu") action ShowMenu('save')
+            textbutton _("Lưu Nhanh") action QuickSave()
+            textbutton _("Tải Lại Nhanh") action QuickLoad()
+            textbutton _("Thiết Lập") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -297,17 +334,19 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("Bắt Đầu") action Start()
 
         else:
 
-            textbutton _("History") action ShowMenu("history")
+            textbutton _("Lịch Sử") action ShowMenu("history")
 
-            textbutton _("Save") action ShowMenu("save")
+            textbutton _("Lưu") action ShowMenu("save")
 
-        textbutton _("Load") action ShowMenu("load")
+        textbutton _("Tải Lại") action ShowMenu("load")
+        
+        textbutton _("Mục Lục") action ShowMenu("chapter")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Thiết Lập") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -315,20 +354,20 @@ screen navigation():
 
         elif not main_menu:
 
-            textbutton _("Main Menu") action MainMenu()
+            textbutton _("Màn Hình Chính") action MainMenu()
 
-        textbutton _("Giới thiệu") action ShowMenu("about")
+        textbutton _("Giới Thiệu") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+            textbutton _("Trợ Giúp") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
             ## The quit button is banned on iOS and unnecessary on Android and
             ## Web.
-            textbutton _("Quit") action Quit(confirm=not main_menu)
+            textbutton _("Thoát") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -367,13 +406,6 @@ screen main_menu():
 
         vbox:
             style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -469,7 +501,7 @@ screen game_menu(title, scroll=None, yinitial=0.0):
 
     use navigation
 
-    textbutton _("Return"):
+    textbutton _("Quay Lại"):
         style "return_button"
 
         action Return()
@@ -546,20 +578,20 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("Giới thiệu"), scroll="viewport"):
+    use game_menu(_("Giới Thiệu"), scroll="viewport"):
 
         style_prefix "about"
 
         vbox:
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+            label "Planetarian - Quả cầu tuyết -"
+            text _("Phiên bản [config.version!t]\n")
 
             ## gui.about is usually set in options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
-
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+                
+            text _("Truyện kể về giai đoạn trước khi thế giới lụi tàn, những ngày tháng Yumemi làm việc cùng mọi người ở cung thiên văn. Một ngày nọ, cô robot ngây thơ trở nên khó hiểu, thường xuyên rời nơi làm việc khiến đồng nghiệp không khỏi lo lắng...\n\nToàn bộ tài nguyên trong game thuộc sở hữu của VisualArrts Co., Ltd.\n\nGame được chuyển soạn lại bởi {a=https://github.com/luudanmatcuoi-vn}Luudanmatcuoi{/a}, viết bằng {a=https://www.renpy.org/}Ren'Py{/a} hoàn toàn phi lợi nhuận.")
 
 
 style about_label is gui_label
@@ -725,7 +757,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Thiết Lập"), scroll="viewport"):
 
         vbox:
 
@@ -736,16 +768,15 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Hiển thị")
-                        textbutton _("Cửa sổ") action Preference("display", "window")
-                        textbutton _("Toàn màn hình") action Preference("display", "fullscreen")
+                        label _("Hiển Thị")
+                        textbutton _("Cửa Sổ") action Preference("display", "window")
+                        textbutton _("Toàn Màn Hình") action Preference("display", "fullscreen")
 
                 vbox:
                     style_prefix "check"
-                    label _("Skip")
-                    textbutton _("Unseen Text") action Preference("skip", "toggle")
-                    textbutton _("After Choices") action Preference("after choices", "toggle")
-                    textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+                    label _("Tua Nhanh")
+                    textbutton _("Câu chưa đọc") action Preference("skip", "toggle")
+                    textbutton _("Chuyển cảnh") action InvertSelected(Preference("transitions", "toggle"))
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -758,46 +789,47 @@ screen preferences():
 
                 vbox:
 
-                    label _("Text Speed")
+                    label _("Tốc độ hiển thị")
 
                     bar value Preference("text speed")
 
-                    label _("Auto-Forward Time")
+                    label _("Thời gian ở chế độ tự động")
 
                     bar value Preference("auto-forward time")
 
                 vbox:
-
+                    label _("Âm Lượng")
+                    
                     if config.has_music:
-                        label _("Music Volume")
+                        label _("Nhạc Nền")
 
                         hbox:
                             bar value Preference("music volume")
 
                     if config.has_sound:
 
-                        label _("Âm lượng")
+                        label _("Tiếng Động")
 
                         hbox:
                             bar value Preference("sound volume")
 
                             if config.sample_sound:
-                                textbutton _("Test") action Play("sound", config.sample_sound)
+                                textbutton _("Chơi Thử") action Play("sound", config.sample_sound)
 
 
                     if config.has_voice:
-                        label _("Voice Volume")
+                        label _("Giọng")
 
                         hbox:
                             bar value Preference("voice volume")
 
                             if config.sample_voice:
-                                textbutton _("Test") action Play("voice", config.sample_voice)
+                                textbutton _("Chơi Thử") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
 
-                        textbutton _("Mute All"):
+                        textbutton _("Tắt Tất Cả Âm Thanh"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
 
@@ -984,8 +1016,8 @@ screen help():
 
             hbox:
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+                textbutton _("Bàn Phím") action SetScreenVariable("device", "keyboard")
+                textbutton _("Chuột") action SetScreenVariable("device", "mouse")
 
                 if GamepadExists():
                     textbutton _("Tay cầm") action SetScreenVariable("device", "gamepad")
@@ -1099,7 +1131,7 @@ screen gamepad_help():
         label _("Y/Top Button")
         text _("Hides the user interface.")
 
-    textbutton _("Tinh chỉnh") action GamepadCalibrate()
+    textbutton _("Tinh Chỉnh") action GamepadCalibrate()
 
 
 style help_button is gui_button
@@ -1211,7 +1243,7 @@ screen skip_indicator():
         hbox:
             spacing 6
 
-            text _("Skipping")
+            text _("Đang Tua Nhanh...")
 
             text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
             text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
@@ -1519,11 +1551,13 @@ screen quick_menu():
 
             xalign 0.5
             yalign 1.0
+            
+            yoffset -20
 
-            textbutton _("Trở lại") action Rollback()
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Menu") action ShowMenu()
+            textbutton _("Trở Lại") action Rollback()
+            textbutton _("Tua Nhanh") action Skip() alternate Skip(fast=True, confirm=True)
+            textbutton _("Tự Động") action Preference("auto-forward", "toggle")
+            textbutton _("Tuỳ Chọn") action ShowMenu()
 
 
 style window:
