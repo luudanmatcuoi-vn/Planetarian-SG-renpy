@@ -6,7 +6,7 @@ Game được viết lại bằng engine renpy để chạy trên android
 ## Giới thiệu
 Truyện kể về giai đoạn trước khi thế giới lụi tàn, những ngày tháng Yumemi làm việc cùng mọi người ở cung thiên văn. Một ngày nọ, cô robot ngây thơ trở nên khó hiểu, thường xuyên rời nơi làm việc khiến đồng nghiệp không khỏi lo lắng...
 
-Game cute mà không có ai làm trên bản android nên t viết lại bằng renpy luôn <(") Đằng nào ở dự án việt hoá trên window t chủ dự án kiêm trưởng ban kỹ thuật kiêm solo đồ hoạ kiêm solo dịch thô kiêm dựng lại phim ending nên sang dự án này cũng nhẹ nhàng.
+Game cute mà không có ai làm trên bản android nên t viết lại bằng renpy luôn <(") Đằng nào ở dự án việt hoá trên window t chủ dự án kiêm trưởng ban kỹ thuật kiêm solo đồ hoạ kiêm solo dịch thô kiêm dựng lại phim ending nên sang dự án "một mình cân hết" này cũng nhẹ nhàng :)
 
 _____________________________________________________________________________
 
