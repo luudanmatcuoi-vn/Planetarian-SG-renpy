@@ -11,7 +11,7 @@ Game cute mà không có ai làm trên bản android nên t viết lại bằng 
 _____________________________________________________________________________
 
 ## Link tải
-[Terabox](https://terabox.com/s/1LO4Xic2snhtvm0EknBJn6Q) / [Drive](https://drive.google.com/file/d/1y2qJiYfwSvDLeUdidvtDJLG46j4XHqKj/view?usp=sharing) / [MegaUp]( 	https://megaup.net/1hf5g/ldmc.viethoa.planetariansg-release.apk) 
+[Terabox](https://terabox.com/s/1LO4Xic2snhtvm0EknBJn6Q) / [Drive](https://drive.google.com/file/d/1y2qJiYfwSvDLeUdidvtDJLG46j4XHqKj/view?usp=sharing) / [MegaUp]( 	https://megaup.net/1Yzgf/ldmc.viethoa.planetariansg-release.apk) 
 
 Trang thông tin: [Itch.io](https://luudanmatcuoi.itch.io/planetarian-qua-cau-tuyet)
 
